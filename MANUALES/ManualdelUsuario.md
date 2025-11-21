@@ -3,22 +3,25 @@ title: "ManualdelUsuario"
 output: html_document
 ---
 
-# 👩‍🦰 MANUAL DE USUARIO 💗
+# 👩‍🦰 MANUAL DE USUARIO 👓
 
 ## Sistema de Optometría
+Este manual fue creado con la intención de orientar a cualquier persona que vaya a utilizar el sistema de optometría. Aunque es un sistema sencillo de manejar, quise dejar por escrito cada parte para que todo quede claro, sobre todo cuando se usan los distintos módulos del CRUD.
 
 ------------------------------------------------------------------------
 
 # 1. Información General
 
-**Nombre del Sistema:** Sistema de Optometría\
+**Nombre del Sistema:** Sistema Optometría\
 **Versión:** 1.0\
 **Usuario objetivo:** Personal administrativo, optometristas y personal de apoyo\
 **Frontend:** Angular\
 **Backend:** Django\
-**Base de datos:** PostgreSQL / MySQL
+**Base de datos:** MySQL\
 
 Este manual explica paso a paso cómo utilizar el sistema, navegar por sus módulos principales y realizar operaciones CRUD sobre pacientes, citas, órdenes, pagos, entregas, optometristas, proveedores y datos clínicos visuales.
+Este sistema de optometría nos va a permitir llevar un control organizado de pacientes, citas, mediciones visuales, órdenes, pagos, entregas y el inventario de lentes y monturas.  
+Mientras fui probando todo, me di cuenta de que la idea general es que cualquier clínica u óptica pueda manejar su información sin complicarse.
 
 ------------------------------------------------------------------------
 
@@ -26,21 +29,21 @@ Este manual explica paso a paso cómo utilizar el sistema, navegar por sus módu
 
 ## 2.1 Requisitos de Hardware
 
--   Computador o laptop\
--   Resolución mínima: 1366×768\
+-   Computador o laptop
+-   Resolución mínima: 1366×768
 -   4 GB RAM (recomendado 8 GB)
 
 ## 2.2 Requisitos de Software
 
--   Navegador actualizado (Chrome, Edge, Firefox)\
--   Conexión a internet\
+-   Navegador actualizado (Chrome, Edge, Firefox)
+-   Conexión a internet
 -   Acceso al servidor donde corre el sistema
 
 ------------------------------------------------------------------------
 
 # 3. Acceso al Sistema
 
-Abra el navegador e ingrese la URL:
+El sistema se ingresa desde el navegador ingresando la siguiente URL:
 
 <http://localhost:4200/>
 
@@ -56,13 +59,13 @@ El sistema cuenta con un menú lateral/ superior donde se encuentran los módulo
 
 -   Mediciones
 
-    ![](Imagenes/Captura%20de%20pantalla%202025-11-20%20062222.png){width="223"}
+    ![](Imagenes/Captura%20de%20pantalla%202025-11-20%20062222.png)
 
 -   Citas
 
 -   Optometristas
 
-    ![](Imagenes/Captura%20de%20pantalla%202025-11-20%20062258.png){width="202"}\
+    ![](Imagenes/Captura%20de%20pantalla%202025-11-20%20062258.png)
 
 -   Lentes
 
@@ -72,8 +75,7 @@ El sistema cuenta con un menú lateral/ superior donde se encuentran los módulo
 
 -   Detalle de Orden
 
-    ![](Imagenes/Captura%20de%20pantalla%202025-11-20%20062303.png){width="193"}\
-    \
+    ![](Imagenes/Captura%20de%20pantalla%202025-11-20%20062303.png)
 
 -   Proveedores
 
@@ -81,61 +83,58 @@ El sistema cuenta con un menú lateral/ superior donde se encuentran los módulo
 
 -   Entregas
 
-    ![](Imagenes/Captura%20de%20pantalla%202025-11-20%20062311.png){width="196"}
+    ![](Imagenes/Captura%20de%20pantalla%202025-11-20%20062311.png)
 
 ------------------------------------------------------------------------
 
-# 5. Módulo de Pacientes (Patients) \|
+# 5. Módulo de Pacientes (Patients) \
 
-| Este módulo permite registrar y gestionar la información de los pacientes del centro de optometría. \|
+Aqui se muestra el modulo de pacientes, que normalmente es lo primero que uno consulta. Este módulo permite registrar y gestionar la información de los pacientes del centro de optometría. \
 
 ## 5.1 Vista de Lista – Consultar Pacientes
 
 Aquí se muestra una tabla con todos los pacientes registrados.
 
-Funciones disponibles: - Ver listado\
-- Buscar\
-- Filtrar\
-- Crear nuevo paciente\
-- Editar\
-- Eliminar
+y cuenta con las siguientes funciones: 
+- Ver listado de pacientes
+- Buscar un paciente
+- Filtrar pacientes
+- Crear nuevo paciente
+- Editar informacion de un paciente
+- Eliminar un paciente
 
 ![](Imagenes/Captura%20de%20pantalla%202025-11-20%20063157.png)
 
-## 5.2 Crear Paciente
+## 5.2 ¿como Crear un Paciente?
 
-1.  Hacer clic en **“Agregar Paciente”** o **“Nuevo”**.\
+1.  Hacer clic en **“Agregar Paciente”** o **“Nuevo”**.
 2.  Completar los campos requeridos:
-    -   Nombre\
-    -   Apellido\
-    -   Número de documento\
-    -   Teléfono\
-    -   Email\
-    -   Fecha de nacimiento\
-    -   Dirección\
+    -   Nombre
+    -   Apellido
+    -   Número de documento
+    -   Teléfono
+    -   Email
+    -   Fecha de nacimiento
+    -   Dirección
 3.  Hacer clic en **Guardar**.
-
-Validaciones: - El documento solo admite números\
-- El correo debe tener formato válido\
-- El nombre no admite caracteres numéricos
 
 ![](Imagenes/Captura%20de%20pantalla%202025-11-20%20063418.png)
 
 ![](Imagenes/Captura%20de%20pantalla%202025-11-20%20063453.png)
 
-## 5.3 Editar Paciente
+## 5.3 ¿como editar Paciente?
 
-1.  Seleccione un paciente de la lista.\
-2.  Haga clic en **Editar**.\
-3.  Modifique los datos necesarios.\
+1.  Seleccione un paciente de la lista.
+2.  Haga clic en **Editar**.
+3.  Modifique los datos necesarios.
 4.  Haga clic en **Actualizar**.
 
 ![](Imagenes/Captura%20de%20pantalla%202025-11-20%20063703.png)
 
 ## 5.4 Eliminar Paciente
 
-1.  En la lista, seleccione **Eliminar**.\
-2.  El sistema muestra un mensaje de confirmación.\
+1.  En la lista, seleccione **Eliminar**.
+2.  El sistema muestra un mensaje de confirmación.
 3.  Acepte la eliminación.
 
 ![](Imagenes/Captura%20de%20pantalla%202025-11-20%20064015.png)
@@ -144,15 +143,18 @@ Validaciones: - El documento solo admite números\
 
 ![](Imagenes/Captura%20de%20pantalla%202025-11-20%20064040.png)
 
+Se muestra un cuadro de confirmación para evitar borrar registros por error.
+
 ------------------------------------------------------------------------
 
 # 6. Módulo de Citas (Appointments)
 
-En este módulo se gestionan las consultas médicas.
+Aquí se registran todas las consultas que tendrá el paciente. Es bastante útil porque queda todo fechado.
 
-Funciones: - Registrar cita\
-- Asignar optometrista\
-- Editar cita\
+Funciones que tiene el modulo de citas: 
+- Registrar o crear cita ---> allí pide los campos de fecha y hora, motivo, paciente, y que optomestrista desea que lo atienda
+- Asignar optometrista
+- Editar cita
 - Cancelar o completar cita
 
 ![](Imagenes/Captura%20de%20pantalla%202025-11-20%20064242.png)
@@ -165,10 +167,11 @@ Funciones: - Registrar cita\
 
 Permite registrar órdenes de lentes o monturas de un paciente.
 
-Incluye: - Crear orden\
-- agregar lentes/monturas\
-- ver total\
-- estado de orden
+Incluye:
+- Crear una orden
+- agregar lentes/monturas
+- ver total
+- estado de la orden
 
 ![](Imagenes/Captura%20de%20pantalla%202025-11-20%20064517.png)
 
@@ -238,17 +241,18 @@ Se gestionan los proveedores de lentes/monturas.
 
 # 13. Preguntas Frecuentes (FAQ)
 
-**1. ¿Qué pasa si el sistema no carga?**\
+**1. ¿Qué pasa si el sistema no carga?**
 → Verifique su conexión a internet o consulte al administrador.
 
-**2. ¿Por qué no me deja guardar un paciente?**\
+**2. ¿Por qué no me deja guardar un paciente?**
 → Revise que todos los campos requeridos estén completos y cumplan las validaciones.
 
 ------------------------------------------------------------------------
 
 # 14. Contacto de Soporte
 
-**Correo:** [soporte\@optometria.com](mailto:soporte@optometria.com){.email}\
+**Correo:** [soporte\@optometria.com](mailto:soporte@optometria.com)\
 **Horario:** L-V 8:00 a.m. – 6:00 p.m.
 
 ------------------------------------------------------------------------
+
