@@ -3,22 +3,22 @@ title: "ManualdelSistema"
 output: html_document
 ---
 
-# 💗 SYSTEM DOCUMENTATION 💗
+#  SYSTEM DOCUMENTATION - OPTOMETRY SYSTEM 👓
 
-### Optometry System
-
-------------------------------------------------------------------------
+This document explains the system from a technical point of view.  
+While working on this project, I tried to keep the architecture simple but still organized in a way that any developer or reviewer can follow it without much trouble.
 
 ## 1. Project Information
 
 **Project Name:** Optometry System\
 **Student Name:** Daillent Conrado\
-**Course:** System Engineer\
-**Date:** 19/11/2025\
-**Teacher:** Jaider Quintero\
+**Course:** Systems Engineering  
+**Semester:** 2025-2 
+**Date:** November 2025  
+**Instructor:** Jaider Quintero
 
 **Short Project Description:**\
-This system manages the operational workflow of an optometry center, including patient registration, appointments, visual history, optical measurements, orders, payments, deliveries, and the management of optometrists and suppliers. It provides a complete CRUD web interface using Angular as the frontend and Django as the backend API.
+This project is a full CRUD web system designed for the management of patients, appointments, visual history, lenses, frames, orders, payments and deliveries inside an optometry clinic.
 
 ------------------------------------------------------------------------
 
@@ -26,39 +26,47 @@ This system manages the operational workflow of an optometry center, including p
 
 ### 2.1 Architecture Description
 
-The system follows a **client–server architecture**:
+The application uses a classic **client–server** structure.  
+While developing it, I realized that keeping things separated helps a lot: Angular handles the UI, and MySQL stores everything.
 
 -   The **frontend** is built in Angular and runs in the user's browser.\
 -   The **backend** uses Django REST Framework to expose RESTful APIs.\
 -   A relational database handles persistent storage.\
 -   Communication is performed via JSON over HTTP.
 
-The system is modularized by functional domains: - Scheduling (appointments & optometrists) - Vision (patients, visual history, measurements) - Catalog (frames, lenses, orders) - Billing (payments, deliveries, suppliers)
+The system is modularized by functional domains: 
+- Scheduling (appointments & optometrists)
+- Vision (patients, visual history, measurements)
+- Catalog (frames, lenses, orders)
+- Billing (payments, deliveries, suppliers)
 
 ### 2.2 Technologies Used
 
 -   **Frontend:** Angular 16+, TypeScript, RxJS, HTML, SCSS\
 -   **Backend:** Django + Django REST Framework\
--   **Database Engine:** MySQL / PostgreSQL (depending on deployment)\
+-   **Database Engine:** MySQL\
 -   **Additional Libraries / Tools:**
     -   PyJWT for authentication\
     -   Angular Material or Bootstrap (optional)\
     -   GitHub for version control\
     -   ERD Tools (e.g., DrawSQL / MySQL Workbench)
 
-### 2.3 Visual Explanation of System Operation (ASCII Diagram)
-
-![](Imagenes/Captura%20de%20pantalla%202025-11-20%20010616.png)
-
 ------------------------------------------------------------------------
 
-## 3. Database Documentation (ENGLISH)
+## 3. Database Documentation
 
 ### 3.1 Database Description
 
-The database supports all operations required for the optometry center. It stores patient information, appointments, optometrists, visual history, optical measurements, orders, order details, products (frames and lenses), payments, deliveries, and suppliers.
+The database includes all the entities needed for optometric work: patients, appointments, lens/frame catalogs, orders, payments, deliveries and suppliers.  
+I based the structure on real optometry workflows to avoid unnecessary tables. The database supports all operations required for the optometry center. It stores patient information, appointments, optometrists, visual history, optical measurements, orders, order details, products (frames and lenses), payments, deliveries, and suppliers.
 
-The model follows **3rd Normal Form (3NF)** and establishes clear one-to-many and many-to-one relationships.
+The model follows **3rd Normal Form (3NF)** and establishes:
+*Main relationships:*
+- One patient → many appointments  
+- One patient → many visual histories  
+- One order → many order_details  
+- Order details link to frames or lenses  
+- One supplier → many deliveries 
 
 ### 3.2 ERD – Entity Relationship Diagram
 
@@ -243,7 +251,7 @@ Entities include:
 -   User confirms deletion.\
 -   Django deletes record (soft delete is recommended).
 
-*(Same CRUD logic applies to appointments, orders, suppliers, payments, measurement, visual history, optometrists)*
+*(Importante esto: Same CRUD logic applies to appointments, orders, suppliers, payments, measurement, visual history, optometrists)*
 
 ------------------------------------------------------------------------
 
@@ -281,11 +289,22 @@ Deletes patient.
 
 Example JSON request body:
 
-\`\`\`json { "first_name": "Carlos", "last_name": "Gomez", "document_id": "112233", "phone": "3124567890", "email": "[carlos\@example.com](mailto:carlos@example.com){.email}" }
+\`\`\`json\
+{\
+"first_name": "Carlos",\
+"last_name": "Gomez",\
+"document_id": "112233", \
+"phone": "3124567890", \
+"email": "[carlos\@example.com](mailto:carlos@example.com)\
+}\
+
+Responses:
+200 OK – Patient created
+400 Bad Request – Invalid or missing data
 
 ### **5.4 REST Client**
 
-## Tested using Postman or Django REST Browsable API.
+I used Postman during testing because it made debugging a lot easier.
 
 ### **6.Frontend Documentation 6.1 Technical Frontend Documentation**
 
@@ -297,7 +316,7 @@ Framework Used: Angular 16+ Programming Language: TypeScript Architecture: Modul
 
 ### 6.2 Visual Explanation
 
-## The Angular UI presents CRUD tables and reactive forms connected to Django API services.
+The Angular UI presents CRUD tables and reactive forms connected to Django API services.
 
 ### 7.Frontend–Backend Integration
 
@@ -307,16 +326,22 @@ Django returns JSON.
 
 Angular displays data in tables, forms, or detail views.
 
-## All operations follow REST conventions.
+All operations follow REST conventions.
 
 ### 8. Conclusions & Recommendations
+Working on this project helped me, and will help you, to better understand CRUD structures. It also helped you see how the interconnection of all elements (patients → appointments → orders) greatly simplifies system maintenance.
 
-The system provides full optometry workflow automation.
+Future improvements I would add, or that you could add:
 
-Clear modularization allows scaling the system easily.
+Authentication
+
+PDF reports
+
+Inventory alerts
 
 Adding authentication (JWT) is recommended.
 
 ## Future improvement: Report generation, dashboards, and role-based permissions.
 
-### ¡Gracias! 💗
+### ¡Gracias! 👓👩‍🦰👓
+
